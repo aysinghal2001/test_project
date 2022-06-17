@@ -1,0 +1,93 @@
+1.Create two folders project1 and project2 locally. Create a repository in github or bitbucket, name it test_project.
+Switch to project1
+
+>> mkdir project1
+mkdir project2
+
+2. Switch to a new branch - 'staging'.
+
+>>cd project1
+
+3. Add a file in it - 'test1' and add content to it 'This is first commit'.
+
+>>touch test1.txt
+start test1.txt
+
+4. Push it to github.
+
+git add .
+git commit -m "new file created"
+
+git branch staging
+git checkout staging
+
+git remote add origin https://github.com/aysinghal2001/test_project.git
+git push --set-upstream origin staging
+git checkout master
+git push --set-upstream origin master
+
+cd ..
+cd project2
+git clone https://github.com/aysinghal2001/test_project.git
+cd test_project/
+git checkout staging
+start test1.txt
+git add .
+git commit -m "First commit"
+git push
+
+cd ..
+cd project1
+git checkout staging
+start test1.txt
+git add .
+git commit -m "Third commit."
+
+Updates were rejected because the remote contains work that you do
+not have locally. This is usually caused by another repository pushing       
+to the same ref. You may want to first integrate the remote changes
+(e.g., 'git pull ...') before pushing again.
+We should sync the local repo with latest changes of remote repo and after that we can push changes into it. 
+
+git pull
+git add .
+git commit -m "Conflict resolved"
+git push
+git checkout master
+git merge staging
+
+git branch testing
+start test1.txt
+git add .
+git commit -m "Change text in test1.txt"
+git add .
+git commit -m "Changed 1 to 2"
+git add .
+git commit -m "Changed 2 to 3"
+git add .
+git commit -m "Changed 3 to 4"
+
+git push --set-upstream origin testing
+git checkout master
+start test1.txt
+git add .
+git commit -m "Changed the test to 1 is a number"
+git add .
+git commit -m "Changed 1 to 2"
+git add .
+git commit -m "Changed 2 to 3"
+git add .
+git commit -m "Changed 3 to 4"
+
+git push
+git rebase testing
+cd ..
+cd project2
+cd test_project/
+git fetch
+git checkout testing
+git log
+git checkout master
+git merge testing
+
+Difference : test1 file is not present in the master branch of project2.
