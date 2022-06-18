@@ -7,6 +7,7 @@ mkdir project2
 2. Switch to a new branch - 'staging'.
 
 >>cd project1
+>>git checkout -b staging
 
 3. Add a file in it - 'test1' and add content to it 'This is first commit'.
 
